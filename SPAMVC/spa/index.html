@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Single Page Application</title>
+
+    <link href="/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Content/Site.css" rel="stylesheet" />
+    <script src="/Scripts/angular.js"></script>
+    <script src="/Scripts/angular-route.min.js"></script>
+    <script src="/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="/Scripts/bootstrap.min.js"></script>
+    <script src="/Scripts/spa/PersonalDetailsController.js"></script>
+    <style>
+        #divLoading {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1000;
+            background-color: #ddffdc;
+            opacity: .8;
+            content: 'Loading...';
+        }
+
+        .loading {
+            position: absolute;
+            left: 40%;
+            top: 50%;
+            margin-left: -32px;
+            margin-top: -32px;
+            display: block;
+            color: black;
+        }
+    </style>
+</head>
+<body ng-app="app" ng-controller="spaController">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="/" title="SPA" class="navbar-brand">SPA</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#/">Home</a></li>
+                    <li><a href="#/pd">Personal Details</a></li>
+                    <li><a href="#/about">About us</a></li>
+                    <li><a href="#/contact">Contact us</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        <h1>{{Title}}</h1>
+        <div id="divLoading" ng-show="loading" style="font-size:50px;">
+            <div class="loading">
+                Loading .....
+            </div>
+        </div>
+        <div ng-view></div>
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+</body>
+</html>
